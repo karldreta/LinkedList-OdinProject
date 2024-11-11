@@ -13,6 +13,13 @@ export default class LinkedList {
       let prevNode = this.list[this.list.length - 2];
       prevNode.next = newNode; // newNode references the recently pushed node.
     }
+    // console.log(this.list);
+  }
+  prepend(value) {
+    const newNode = new node();
+    newNode.value = value;
+    this.list.unshift(newNode);
+    newNode.next = this.list[1] // Since we’re adding the node at index 0, the next node is now at-- you guessed it--index 1.
     console.log(this.list);
   }
 }
@@ -23,3 +30,5 @@ list.append("Karl");
 list.append("James");
 list.append("John");
 list.append("Kara");
+list.prepend("Lina");
+list.prepend("Marcy");
