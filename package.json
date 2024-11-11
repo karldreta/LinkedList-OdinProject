@@ -1,8 +1,8 @@
 {
-  "name": "template-repo-01",
+  "name": "linked-list",
   "version": "1.0.0",
   "type": "module",
-  "description": "This will be our Template for future projects with Webpack.",
+  "description": "This is an Odin Project: Linked List",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
