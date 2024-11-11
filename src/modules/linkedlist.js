@@ -28,6 +28,9 @@ export default class LinkedList {
   head() {
     return this.list[0];
   }
+  tail() {
+    return this.list[this.list.length - 1];
+  }
 }
 
 const list = new LinkedList();
@@ -40,5 +43,7 @@ list.prepend("Lina");
 list.prepend("Marcy");
 console.log(list.size());
 console.log(list.head());
+console.log(list.tail());
+
 
 
