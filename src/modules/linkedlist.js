@@ -20,7 +20,10 @@ export default class LinkedList {
     newNode.value = value;
     this.list.unshift(newNode);
     newNode.next = this.list[1] // Since we’re adding the node at index 0, the next node is now at-- you guessed it--index 1.
-    console.log(this.list);
+    // console.log(this.list);
+  }
+  size() {
+    return this.list.length;
   }
 }
 
@@ -32,3 +35,5 @@ list.append("John");
 list.append("Kara");
 list.prepend("Lina");
 list.prepend("Marcy");
+console.log(list.size());
+
