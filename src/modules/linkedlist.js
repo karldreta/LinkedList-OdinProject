@@ -23,13 +23,16 @@ export default class LinkedList {
     // console.log(this.list);
   }
   size() {
-    return this.list.length;
+    return this.list.length; // Returns the total number of nodes in the list.
   }
   head() {
-    return this.list[0];
+    return this.list[0]; // Returns the first node in the list.
   }
   tail() {
-    return this.list[this.list.length - 1];
+    return this.list[this.list.length - 1]; // Returns the last node in the list.
+  }
+  at(index) {
+    return this.list[index]; // Returns the node at the given index;
   }
 }
 
@@ -44,6 +47,8 @@ list.prepend("Marcy");
 console.log(list.size());
 console.log(list.head());
 console.log(list.tail());
+console.log(list.at(3));
+
 
 
 
