@@ -41,8 +41,18 @@ export default class LinkedList {
     head() {
         // We have to rename our properties to satisfy the project.
         return this.start;
+}
+    tail() {
+        return this.end;
+}
+    at(index) {
+        let current = this.start; // Initialize the current to the start(head).
+        for (let i = 0; i < index; i++) {
+            current = current.next; // let current advance to the next until the iteration reaches the target(index).
+        }
+        // Afterwards, simply return current.
+        return current; 
     }
-
 }
 const list = new LinkedList();
 
@@ -52,19 +62,15 @@ list.append("Mike");
 list.append("Alpha");
 list.prepend("Flash");
 list.prepend("Josh");
-console.log(list.size());
-console.log(list.head());
+// console.log(list.size());
+// console.log(list.head());
+// console.log(list.tail());
+console.log(list.at(0));
 
 
 
 
 
-//   start() {
-//     return this.list[0]; // Returns the first node in the list.
-//   }
-//   end() {
-//     return this.list[this.list.length - 1]; // Returns the last node in the list.
-//   }
 //   at(index) {
 //     return this.list[index]; // Returns the node at the given index;
 //   }
