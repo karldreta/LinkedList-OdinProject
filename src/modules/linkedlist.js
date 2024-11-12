@@ -34,6 +34,10 @@ export default class LinkedList {
   at(index) {
     return this.list[index]; // Returns the node at the given index;
   }
+  pop() {
+    this.list.pop();
+    return this.list;
+  }
 }
 
 const list = new LinkedList();
@@ -48,6 +52,8 @@ console.log(list.size());
 console.log(list.head());
 console.log(list.tail());
 console.log(list.at(3));
+console.log(list.pop());
+
 
 
 
