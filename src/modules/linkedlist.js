@@ -17,23 +17,38 @@ export default class LinkedList {
         this.tail.next = newNode; // Link the current tail to be the newly added node.
         this.tail = newNode; // Set the tail to the new node.
     }
-    // console.log(this.head, this.tail);   
+    // return this
+  }
+    prepend(value) {
+    const newNode = new node();
+    newNode.value = value;
+    
+    if (this.head == null) {
+        this.head = newNode; 
+        this.tail = this.head;
+    }
+
+    if (this.head != null) {
+        newNode.next = this.head; // Set the next value of the new node to the current head.
+        this.head = newNode; // Set the head to the newly created nede.
+    }
+
+    return this
   }
 }
 const list = new LinkedList();
 
 list.append("Karl");
 list.append("James");
-// list.append("Mike");
-// list.append("Alpha");
+list.append("Mike");
+list.append("Alpha");
+list.prepend("Flash");
+list.prepend("Josh");
+console.log(list);
 
-//   prepend(value) {
-//     const newNode = new node();
-//     newNode.value = value;
-//     this.list.unshift(newNode);
-//     newNode.next = this.list[1] // Since we’re adding the node at index 0, the next node is now at-- you guessed it--index 1.
-//     // console.log(this.list);
-//   }
+
+
+
 //   size() {
 //     return this.list.length; // Returns the total number of nodes in the list.
 //   }
