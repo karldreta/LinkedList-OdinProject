@@ -4,6 +4,7 @@ export default class LinkedList {
   constructor() {
     this.head = null;
     this.tail = null;
+    this.length = 0;
   }
   append(value) {
     const newNode = new node();
@@ -16,8 +17,8 @@ export default class LinkedList {
     if (this.tail != null) {
         this.tail.next = newNode; // Link the current tail to be the newly added node.
         this.tail = newNode; // Set the tail to the new node.
+        this.length++; // Adds 1 to the size. *We only need to increment from here since this is where we set the node.
     }
-    // return this
   }
     prepend(value) {
     const newNode = new node();
@@ -31,10 +32,13 @@ export default class LinkedList {
     if (this.head != null) {
         newNode.next = this.head; // Set the next value of the new node to the current head.
         this.head = newNode; // Set the head to the newly created nede.
+        this.length++; // Adds 1 to the size.
     }
+}
+    size() {
+    return this.length; // Returns the total number of nodes in the list.
+}
 
-    return this
-  }
 }
 const list = new LinkedList();
 
@@ -44,7 +48,7 @@ list.append("Mike");
 list.append("Alpha");
 list.prepend("Flash");
 list.prepend("Josh");
-console.log(list);
+console.log(list.size());
 
 
 
