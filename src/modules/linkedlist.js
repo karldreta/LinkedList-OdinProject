@@ -53,6 +53,17 @@ export default class LinkedList {
         // Afterwards, simply return current.
         return current; 
     }
+    pop() {
+        // Traverse to the second to the last node.
+        let current = this.start;
+        for (let i = 0; i < this.length - 2; i++) {
+            current = current.next;
+        }
+        // Set the current.next to null eliminating succeeding links and setting this.end to the second to last node.
+        current.next = null;
+        this.end = current;
+        this.length--; // Decrement the size of the list.
+    }
 }
 const list = new LinkedList();
 
@@ -65,30 +76,11 @@ list.prepend("Josh");
 // console.log(list.size());
 // console.log(list.head());
 // console.log(list.tail());
-console.log(list.at(0));
-
-
-
-
-
-//   at(index) {
-//     return this.list[index]; // Returns the node at the given index;
-//   }
-//   pop() {
-//     this.list.pop();
-//     return this.list;
-//   }
-
-
-// list.append("John");
-// list.append("Kara");
-// list.prepend("Lina");
-// list.prepend("Marcy");
-// console.log(list.size());
-// console.log(list.start());
-// console.log(list.end());
-// console.log(list.at(3));
-// console.log(list.pop());
+// console.log(list.at(0));
+console.log(list.pop());
+console.log(list.head());
+console.log(list.tail());
+console.log(list.size());
 
 
 
