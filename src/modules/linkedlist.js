@@ -75,6 +75,18 @@ export default class LinkedList {
     }
     return null; // Return null if the value is not found in the list
   }
+  toString() {
+    let current = this.start;
+    let list = ""; // This is a storage for strings to concatenate;
+    for (let i = 0; i < this.length; i++) {
+      list += `(${current.value}) -> `; // Concatenate all the values into this template.
+      current = current.next;
+      if (current == null) {
+        list += null; // When current is null add null to the last of the list.
+      }
+    }
+    return list; // Return the concatenated list;
+  }
 }
 const list = new LinkedList();
 
@@ -88,10 +100,11 @@ list.prepend("Josh"); // 0
 // console.log(list.head());
 // console.log(list.tail());
 // console.log(list.at(0));
-list.pop();
+// list.pop();
 console.log(list.at(3));
 console.log(list.find("Karl"));
 
 // console.log(list.head());
 // console.log(list.tail());
 console.log(list.size());
+console.log(list.toString());
