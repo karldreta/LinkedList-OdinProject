@@ -87,6 +87,24 @@ export default class LinkedList {
     }
     return list; // Return the concatenated list;
   }
+
+  // Extra Credit
+  insertAt(value, index) {
+    // For this we will be using our existing method "at()" to look for the node in a given index, see at() above.
+    const newNode = new node();
+    newNode.value = value;
+    newNode.next = this.at(index); // at() will return the current node in a given index and we set that node as the .next value of our 'newNode';
+    // But how will the previous node (the one before the index) know who its .next node is?
+    // We will also grab that node by traversing to the given index minus 1, then set that node's next to the newNode. Easy.
+    // But...
+    if (index == 0) {
+      this.prepend(value); // Prepend the node and simply return.
+      return;
+    }
+    // Otherwise, continue.
+    this.at(index - 1).next = newNode;
+    this.length++; // Then add 1 to the size of the list.
+  }
 }
 const list = new LinkedList();
 
@@ -101,10 +119,11 @@ list.prepend("Josh"); // 0
 // console.log(list.tail());
 // console.log(list.at(0));
 // list.pop();
-console.log(list.at(3));
-console.log(list.find("Karl"));
+// console.log(list.at(3));
+// // console.log(list.head());
+// // console.log(list.tail());
+// list.prepend("Jacob")
+list.insertAt("Jam", 6);
+// console.log(list.toString());
 
-// console.log(list.head());
-// console.log(list.tail());
-console.log(list.size());
-console.log(list.toString());
+console.log(list.find("Jam"));
