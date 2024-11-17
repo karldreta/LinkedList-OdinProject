@@ -36,7 +36,7 @@ export default class LinkedList {
     }
   }
   size() {
-    return this.length; // Returns the total number of nodes in the list.
+    return `This Linked List is ${this.length} nodes long.`;
   }
   head() {
     // We have to rename our properties to satisfy the project.
@@ -98,12 +98,27 @@ export default class LinkedList {
     // We will also grab that node by traversing to the given index minus 1, then set that node's next to the newNode. Easy.
     // But...
     if (index == 0) {
-      this.prepend(value); // Prepend the node and simply return.
+      this.prepend(value); // Prepend the node and simply return. Also no need to add to the length since prepend already takes care of that.
       return;
     }
     // Otherwise, continue.
     this.at(index - 1).next = newNode;
     this.length++; // Then add 1 to the size of the list.
+  }
+  removeAt(index) {
+    if (index == 0) {
+      this.start = this.head().next; // head() method returns the current head, so we'll just have to set the start of list to the next node of the head().
+      this.length--;
+      return;
+    }
+    if (index == this.length) {
+      this.pop();
+      return;
+    }
+
+    // Otherwise grab the previous node and change its next to the current node's .next;
+    this.at(index - 1).next = this.at(index + 1);
+    this.length--; // Then reduce the size by 1.
   }
 }
 const list = new LinkedList();
@@ -114,16 +129,7 @@ list.append("Mike"); // 4
 list.append("Alpha"); // 5
 list.prepend("Flash"); // 1
 list.prepend("Josh"); // 0
-// console.log(list.size());
-// console.log(list.head());
-// console.log(list.tail());
-// console.log(list.at(0));
-// list.pop();
-// console.log(list.at(3));
-// // console.log(list.head());
-// // console.log(list.tail());
-// list.prepend("Jacob")
-list.insertAt("Jam", 6);
-// console.log(list.toString());
-
-console.log(list.find("Jam"));
+list.insertAt("Jam", 5);
+list.removeAt(4);
+console.log(list.size());
+console.log(list.toString());
