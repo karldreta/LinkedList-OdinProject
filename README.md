@@ -1,15 +1,5 @@
-# Template-Repo-01
+# Linked List
 
-Welcome to the Template-Repo-01! This repository serves as a starting point for future projects with Webpack, providing a streamlined setup for development.
+Before starting this project, I set it up using my custom template repo. My goal was to enable future expansion, such as creating a UI/UX for displaying the list and nodes directly in the browser instead of only in the console. This way, users can visually interact with and understand the relationships between nodes and see the entire list structure.
 
-### Getting Started
-
-Just type in `npm install` to your project and it should install all the dependencies of our project listed in **package.json**.
-
-Note: That this Template uses ES6 standards instead of the default CommonJS, verify the `type` in `package.json` -- it should be `  "type": "module"`.
-
-Moreover, **Webpack** should also be in ES6 format and should be using import/export -- check out `webpack.config`.
-
-If this doesn't work, check out **TEMPLATE.md** in this file and to know more about deployment.
-
-- Afterwards you may rewrite this file to align with your project, have fun!
+You can find the project code inside [/src/modules/linkedlist.js](https://github.com/karldreta/LinkedList-OdinProject/blob/main/src/modules/linkedlist.js).
