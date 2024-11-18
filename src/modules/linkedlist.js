@@ -64,16 +64,29 @@ export default class LinkedList {
     this.end = current;
     this.length--; // Decrement the size of the list.
   }
-  find(value) {
-    let current = this.start;
-    for (let i = 0; i < this.length; i++) {
-      if (current.value == value) {
-        return i;
-      } else {
-        current = current.next;
-      }
+  find(value, i = 0, current = this.start) {
+    // Upon finishing the project I decided to go beyond and make this recursive;
+    // As you can see we have two base cases, for when we reach the end and return null and for when we reach the index of the value.
+    if (current == null) {
+      return null;
     }
-    return null; // Return null if the value is not found in the list
+    if (current.value == value) {
+      return `${current.value} is at index ${i}.`;
+    } else {
+      return this.find(value, i + 1, current.next);
+    }
+
+    // Below is the original code -->
+
+    // let current = this.start;
+    // for (let i = 0; i < this.length; i++) {
+    //   if (current.value == value) {
+    //     return i;
+    //   } else {
+    //     current = current.next;
+    //   }
+    // }
+    // return null; // Return null if the value is not found in the list
   }
   toString() {
     let current = this.start;
@@ -121,15 +134,3 @@ export default class LinkedList {
     this.length--; // Then reduce the size by 1.
   }
 }
-const list = new LinkedList();
-
-list.append("Karl"); // 2
-list.append("James"); // 3
-list.append("Mike"); // 4
-list.append("Alpha"); // 5
-list.prepend("Flash"); // 1
-list.prepend("Josh"); // 0
-list.insertAt("Jam", 5);
-list.removeAt(4);
-console.log(list.size());
-console.log(list.toString());
