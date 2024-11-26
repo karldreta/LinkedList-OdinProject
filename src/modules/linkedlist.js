@@ -1,4 +1,4 @@
-import node from "./nodeModule.js";
+import Node from "./nodeModule.js";
 
 export default class LinkedList {
   constructor() {
