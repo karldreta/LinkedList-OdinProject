@@ -7,7 +7,7 @@ export default class LinkedList {
     this.length = 0;
   }
   append(value) {
-    const newNode = new node();
+    const newNode = new Node();
     newNode.value = value; // We append the value after instantiation since the node class has default property values of null (which is okayt in this case).
     if (this.start == null) {
       this.start = newNode; // Link the current end to the new node
@@ -21,7 +21,7 @@ export default class LinkedList {
     }
   }
   prepend(value) {
-    const newNode = new node();
+    const newNode = new Node();
     newNode.value = value;
 
     if (this.start == null) {
@@ -104,7 +104,7 @@ export default class LinkedList {
   // Extra Credit
   insertAt(value, index) {
     // For this we will be using our existing method "at()" to look for the node in a given index, see at() above.
-    const newNode = new node();
+    const newNode = new Node();
     newNode.value = value;
     newNode.next = this.at(index); // at() will return the current node in a given index and we set that node as the .next value of our 'newNode';
     // But how will the previous node (the one before the index) know who its .next node is?
