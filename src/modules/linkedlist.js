@@ -36,7 +36,7 @@ export default class LinkedList {
     }
   }
   size() {
-    return `This Linked List is ${this.length} nodes long.`;
+    return this.length;
   }
   head() {
     // We have to rename our properties to satisfy the project.
@@ -54,6 +54,18 @@ export default class LinkedList {
     return current;
   }
   pop() {
+    if (this.length == 0) {
+      throw new Error("Cannot pop from an empty list.");
+    }
+
+    if (this.length == 1) {
+      // If only one node exists, clear the list.
+      this.start = null;
+      this.end = null;
+      this.length--;
+      return;
+    } 
+
     // Traverse to the second to the last node.
     let current = this.start;
     for (let i = 0; i < this.length - 2; i++) {
@@ -70,8 +82,16 @@ export default class LinkedList {
     if (current == null) {
       return null;
     }
+    // Before we proceed with the recursion, check first if the length is one, otherwise it will call on the function recursively, always adding 1 to i without progressing.
+    if (this.length == 1) {
+      if (current.value == value) {
+        return i;
+      }
+      return null;
+    }
+
     if (current.value == value) {
-      return `${current.value} is at index ${i}.`;
+      return i;
     } else {
       return this.find(value, i + 1, current.next);
     }
@@ -94,7 +114,9 @@ export default class LinkedList {
     for (let i = 0; i < this.length; i++) {
       list += `(${current.value}) -> `; // Concatenate all the values into this template.
       current = current.next;
-      if (current == null) {
+      if (this.size() == 1) {
+        list += null;
+      } else if (current == null) {
         list += null; // When current is null add null to the last of the list.
       }
     }
@@ -119,12 +141,17 @@ export default class LinkedList {
     this.length++; // Then add 1 to the size of the list.
   }
   removeAt(index) {
+    if (index < 0 || index >= this.length) {
+      throw new Error("Index out of bounds.");
+  }
     if (index == 0) {
       this.start = this.head().next; // head() method returns the current head, so we'll just have to set the start of list to the next node of the head().
       this.length--;
       return;
     }
-    if (index == this.length) {
+    if (index == this.length - 1) {
+      console.log("hi");
+      
       this.pop();
       return;
     }
